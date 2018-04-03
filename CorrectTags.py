@@ -106,8 +106,10 @@ class CarCorrection(object):
                 result = cv2.waitKey(0)
 
             if result == 49:
+                print("进入修改")
                 self._corrected_count = self._corrected_count + 1
                 color_key = cv2.waitKey(0)
+                # print(color_key)
 
                 # car color
                 # w:119 b:98 d:100 g:103 y:121 r:113 l:98
@@ -123,11 +125,13 @@ class CarCorrection(object):
 
                 # car type
                 car_type_key = cv2.waitKey(0)
+                # print(car_type_key)
                 while car_type_key < 48 or car_type_key > 51:
                     car_type_key = cv2.waitKey(0)
 
                 #Get new tag
                 new_file_name = self._get_name_string(file_path_and_name.file_name, color_key, car_type_key)
+                print("更改为：", new_file_name)
                 #Correct the wrong tag
                 old_file_path = file_path_and_name.file_path
                 new_file_path = os.path.join(self._path_set.dst_path, new_file_name)
@@ -170,7 +174,7 @@ class CarCorrection(object):
             pass
 
         id = re.search("[0-9]+",old_file_name)
-        some_other_message = re.search("_[^_]*牌_\D+_",old_file_name)
+        some_other_message = re.search("_[^_]*牌_[^_]+_",old_file_name)
 
         return id[0] + "_" + color_str + some_other_message[0] + car_type_str + ".jpg"
 
