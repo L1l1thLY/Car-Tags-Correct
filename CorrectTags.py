@@ -112,14 +112,14 @@ class CarCorrection(object):
                 # print(color_key)
 
                 # car color
-                # w:119 b:98 d:100 g:103 y:121 r:113 l:98
+                # w:119 b:98 d:100 g:103 y:121 r:114 l:98
                 # Input for color and car types.
                 while color_key != 119 and \
                     color_key != 98 and \
                     color_key != 100 and \
                     color_key != 103 and \
                     color_key != 121 and \
-                    color_key != 113 and \
+                    color_key != 114 and \
                         color_key != 108:
                     color_key = cv2.waitKey(0)
 
@@ -141,7 +141,7 @@ class CarCorrection(object):
             cv2.destroyAllWindows()
 
     def _get_name_string(self, old_file_name, color_key, car_type_key):
-        # w:119 b:98 d:100 g:103 y:121 r:113
+        # w:119 b:98 d:100 g:103 y:121 r:114
         # Input for color and car types.
         color_str = "错误"
         car_type_str = "错误"
@@ -155,7 +155,7 @@ class CarCorrection(object):
             color_str = "绿"
         elif color_key == 121:
             color_str = "黄"
-        elif color_key == 113:
+        elif color_key == 114:
             color_str = "红"
         elif color_key == 108:
             color_str = "蓝"
