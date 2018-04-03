@@ -61,7 +61,10 @@ class CarCorrection(object):
         for file_path_set in self._path_set.get_src_file_path():
             image = cv2.imread(file_path_set.src_path, cv2.IMREAD_REDUCED_COLOR_4)
             window = cv2.namedWindow("Reserve: Push 1 | Delete: Push 0", cv2.WINDOW_AUTOSIZE)
-            cv2.imshow("Reserve: Push 1 | Delete: Push 0", image)
+            try:
+                cv2.imshow("Reserve: Push 1 | Delete: Push 0", image)
+            except:
+                continue
             result = cv2.waitKey(0)
 
             while result != 48 and result != 49 and result != 50:
@@ -90,7 +93,10 @@ class CarCorrection(object):
             #Show a picture.
             image = cv2.imread(file_path_and_name.file_path, cv2.IMREAD_REDUCED_COLOR_4)
             window = cv2.namedWindow(file_path_and_name.file_name, cv2.WINDOW_AUTOSIZE)
-            cv2.imshow(file_path_and_name.file_name, image)
+            try:
+                cv2.imshow(file_path_and_name.file_name, image)
+            except:
+                continue
 
             print(file_path_and_name.file_name)
 
