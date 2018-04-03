@@ -85,7 +85,7 @@ class CarCorrection(object):
     def correct_process(self):
 
         print(" 进入标签修改过程，图片将依次展示，若有问题请按1后：颜色：w：白色 b：黑色 d: 灰色 g：绿 y: 黄 r：红色 l:蓝色"
-              " 0：轿车 1：小型普通客车 2：中型普通客车 3：大型普通客车"
+              " 0：轿车 1：小型普通客车 2：中型普通客车 3：大型普通客车 4: 轻型普通货车"
               " 没问题请按0"
               )
 
@@ -120,13 +120,13 @@ class CarCorrection(object):
                     color_key != 103 and \
                     color_key != 121 and \
                     color_key != 113 and \
-                        color_key != 98:
+                        color_key != 108:
                     color_key = cv2.waitKey(0)
 
                 # car type
                 car_type_key = cv2.waitKey(0)
                 # print(car_type_key)
-                while car_type_key < 48 or car_type_key > 51:
+                while car_type_key < 48 or car_type_key > 52:
                     car_type_key = cv2.waitKey(0)
 
                 #Get new tag
@@ -157,7 +157,7 @@ class CarCorrection(object):
             color_str = "黄"
         elif color_key == 113:
             color_str = "红"
-        elif color_key == 98:
+        elif color_key == 108:
             color_str = "蓝"
         else:
             pass
@@ -170,6 +170,8 @@ class CarCorrection(object):
             car_type_str = "中型普通客车"
         elif car_type_key == 51:
             car_type_str = "大型普通客车"
+        elif car_type_key == 52:
+            car_type_str == "轻型普通货车"
         else:
             pass
 
