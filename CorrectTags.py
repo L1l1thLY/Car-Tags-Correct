@@ -174,7 +174,7 @@ class CarCorrection(object):
             pass
 
         id = re.search("[0-9]+",old_file_name)
-        some_other_message = re.search("_[^_]*牌_[^_]+_",old_file_name)
+        some_other_message = re.search("_[^_]{2,}_[^_]+_",old_file_name)
 
         return id[0] + "_" + color_str + some_other_message[0] + car_type_str + ".jpg"
 
